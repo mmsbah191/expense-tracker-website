@@ -1,0 +1,28 @@
+*{
+      background: rgba(199, 224, 228, .5);
+
+}
+
+
+
+table {
+    width: 100%;
+    margin-top: 50px;
+      /* background: rgba(199, 224, 228, .5); */
+}
+
+th,
+td {
+    padding: 8px;
+        background-color: aliceblue;
+}
+
+tr:hover {
+  background: rgb(10, 10, 10);
+}
+
+th {
+    /* title  */
+  background: rgb(181, 224, 231,1);
+    color: white;
+}
