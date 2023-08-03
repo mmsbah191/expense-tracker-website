@@ -5,7 +5,7 @@ The name file is expressive
 <?php
 
 include("include/connect.php");
-include("include/functions.php");
+include_once("include/functions.php");
 
 
 

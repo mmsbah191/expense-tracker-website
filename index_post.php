@@ -4,12 +4,15 @@ backend login file
 
 */ -->
 
+<!-- /* Name: Mohammed Ibrahim
+date: 11/6/2023
+*/ -->
 <?php
 session_start();
 
 
 include("include/connect.php");
-include("include/functions.php");
+include_once("include/functions.php");
 
 
 first:
@@ -21,12 +24,12 @@ if (isset($_POST['sbmt'])) {
 
     //remove sql queries and scribts htmlentities
     $username = sanitize($conn, $username);
-    $password = sanitize($conn,$password);
+    $password = sanitize($conn, $password);
     $md5_pass = md5($password);
 
 
-  
-    
+
+
     if (isset($_POST['keep'])) {
         $keep = (int)(stripcslashes($_POST['keep']));
         if ($keep == 1) {
@@ -37,7 +40,7 @@ if (isset($_POST['sbmt'])) {
 
 
 
- 
+
 
     username:
     if (empty($username)) {
@@ -60,7 +63,7 @@ if (isset($_POST['sbmt'])) {
 
     mid:
     if (isset($err_username) or isset($err_password)) {
-        include_once("index.php");//login page
+        include_once("index.php"); //login page
     } else {
         $sql = "SELECT id,username,password,email FROM `users` 
         WHERE (username = '$username'  or email = '$username' )
