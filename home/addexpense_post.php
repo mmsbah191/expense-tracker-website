@@ -1,11 +1,12 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-The name file is expressive
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <?php
 
 include("../include/connect.php");
-include("../include/functions.php");
+include_once("../include/functions.php");
 
 
 if (isset($_POST['sbmt'])) {
@@ -36,18 +37,16 @@ if (isset($_POST['sbmt'])) {
     } else {
         $amount = data_validition($conn, $_POST['amount']);
     }
+    
     if (isset($_POST['date']))
         $date = data_validition($conn, $_POST['date']);
     else $err_date = 'err_date';
 
     if (isset($_POST['bill']))
         $bill = data_validition($conn, $_POST['bill']);
-    else $err_bill = 'err_bill';
-
-
-
-    if (isset($_POST['notes']))
-        $notes = data_validition($conn, $_POST['notes']);
+    else $err_bill = 'err_bill';//img
+    
+    $notes = data_validition($conn, $_POST['notes']);//only true code
 
 
 
@@ -56,7 +55,7 @@ if (isset($_POST['sbmt'])) {
         session_start();
     }
     $id = $_SESSION['id'];
-        // print_r($id);
+    // print_r($id);
     $types = array('Expense', 'Income');
     // print_r($id);
 
@@ -65,39 +64,34 @@ if (isset($_POST['sbmt'])) {
         include_once('addexpense.php');
         exit();
     } else {
-        $sql = "SELECT category_id FROM `categories`
+        $sql = "SELECT category_id,amount FROM `categories`
          WHERE user_id='$id' and category_name='$category' ";
         $result = mysqli_query($conn, $sql);
         $rows = mysqli_fetch_assoc($result);
+        print_r($rows);
         $category_id = $rows['category_id'];
-
-        $sql = "SELECT amount FROM `categories` WHERE category_id='$category_id' ";
-        $result = mysqli_query($conn, $sql);
-        $rows = mysqli_fetch_assoc($result);
+        // echo '<br/>' . $rows['category_id'];
         $stay_amount = $rows['amount'] - $amount;
+        // echo '<br/>' . $rows['amount'];
 
-        if($stay_amount>=0){
+        if ($stay_amount >= 0) {
             $sql = "UPDATE `categories` SET `amount` = '$stay_amount' WHERE `categories`.`category_id` = '$category_id' ";
             mysqli_query($conn, $sql);
-        }else{
+        } else {
             $err_amount = "<p id='error'>Please update category</span>";
-            $_POST['upload']=1;
-            $_POST['name']= $category;
+            $_POST['upload'] = 1;
+            $_POST['name'] = $category;
             include_once('updatecategories_select.php');
             exit();
         }
-        
-        $sql = "SELECT payment_id FROM `payment_account` WHERE user_id='$id' and payment_name='$payment' ";
+
+        $sql = "SELECT payment_id,balance FROM `payment_account` WHERE user_id='$id' and payment_name='$payment' ";
         $result = mysqli_query($conn, $sql);
         $rows = mysqli_fetch_assoc($result);
         $payment_id = $rows['payment_id'];
-
-        $sql = "SELECT balance FROM `payment_account` WHERE user_id='$id' and payment_id='$payment_id' ";
-        $result = mysqli_query($conn, $sql);
-        $rows = mysqli_fetch_assoc($result);
         $stay_balance = $rows['balance'] - $amount;
 
-        
+
 
         if ($stay_balance >= 0) {
             $sql = "UPDATE `payment_account` SET `balance` = '$stay_balance' WHERE `payment_account`.`payment_id` = '$payment_id' ";

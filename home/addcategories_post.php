@@ -1,11 +1,11 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-The name file is expressive
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+-->
 <?php
 
 include("../include/connect.php");
-include("../include/functions.php");
+include_once("../include/functions.php");
 
 
 
@@ -15,16 +15,16 @@ if (session_status() == PHP_SESSION_NONE) {
 $id = $_SESSION['id'];
 $date = date('Y-m-d H:i:s');
 $types = array('Expense', 'Income');
-    // print_r($id);
-    
-if (isset($_POST['sbmt']) ) {
+// print_r($id);
+
+if (isset($_POST['sbmt'])) {
 
     $name = data_validition($conn, $_POST['name']);
     $amount = data_validition($conn, $_POST['amount']);
     $notes = data_validition($conn, $_POST['notes']);
-    if(isset($_POST['type']))
-    $type = data_validition($conn, $_POST['type']);
-    else $type=null;
+    if (isset($_POST['type']))
+        $type = data_validition($conn, $_POST['type']);
+    else $type = null;
 
     if (empty($name)) {
         $err_name = "<p id='error'>Please enter your name</p>";
@@ -44,8 +44,8 @@ if (isset($_POST['sbmt']) ) {
     } elseif (!is_numeric($amount)) {
         $err_amount = "<p id='error'>Please enter numbers only</p>";
     }
-    
-    if (!in_array($type, $types) or $type==null) {
+
+    if (!in_array($type, $types) or $type == null) {
         $err_type = "<p id='error'>Please choose method</p>";
     }
 
@@ -61,6 +61,6 @@ if (isset($_POST['sbmt']) ) {
         exit();
     }
 } else {
-        include_once('addcategories.php');
+    include_once('addcategories.php');
     exit();
 }

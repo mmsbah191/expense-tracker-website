@@ -1,15 +1,12 @@
 <!-- 
     Name: Mohammed Ibrahim
-    date: 11/6/2023
-    
+    date: 22/7/2023
+   interface home\categories.php
 -->
-
 <?php
 
 include_once('../include/is_login.php');
-
 include('../include/head.html');
-
 ?>
 
 <body>
@@ -28,20 +25,6 @@ include('../include/head.html');
             </nav>
         </div>
     </div>
-
-    <!-- <br>
-    <?php
-    include("../include/connect.php");
-    $id = $_SESSION['id'];
-    $sql = "SELECT category_name,type,amount FROM `categories` 
-        WHERE 1";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    print_r($row);
-    foreach ($row as $a) {
-        echo "<h1>$a</i>";
-    }
-    ?> -->
 
 
     <?php include('../include/footer.html'); ?>

@@ -1,3 +1,8 @@
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    interface home\showcategories.php
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +26,7 @@
                 <th>category_name</th>
                 <th>type</th>
                 <th>budget</th>
+                <th>reaming budget</th>
                 <th>notes</th>
                 <th>created_at</th>
                 <th>updated_at</th>
@@ -48,7 +54,7 @@
                 <td><?php echo $row[3]; ?></td>
                 <td><?php echo $row[4]; ?></td>
                 <td><?php echo $row[5]; ?></td>
-                <!-- <td><?php echo $row[6]; ?></td> -->
+                <td><?php echo $row[6]; ?></td>
                 <td><?php echo $row[7]; ?></td>
                 <td><?php echo $row[8]; ?></td>
             </tr>

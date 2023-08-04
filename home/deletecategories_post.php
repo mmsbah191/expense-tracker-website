@@ -1,6 +1,10 @@
+<!-- /* Name: Mohammed Ibrahim
+date: 21/7/2023
+  back end home\deletecategories_post.php
+*/ -->
 <?php
 include("../include/connect.php");
-include("../include/functions.php");
+include_once("../include/functions.php");
 
 
 
@@ -9,7 +13,7 @@ if (isset($_POST['delete']) and isset($_POST['name'])) {
         session_start();
     }
     $id = $_SESSION['id'];
-    
+
     $name = data_validition($conn, $_POST['name']);
     // echo $name;
     // echo $id;

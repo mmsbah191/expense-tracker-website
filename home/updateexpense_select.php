@@ -1,6 +1,11 @@
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <?php
 include("../include/connect.php");
-include("../include/functions.php");
+include_once("../include/functions.php");
 // $expense_id=null;
 
 if (isset($_POST['upload']) and isset($_POST['title'])) {

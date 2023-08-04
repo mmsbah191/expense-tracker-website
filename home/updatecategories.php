@@ -1,7 +1,8 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-  //path=../home/profile.php
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    interface home\updatecategories.php
+-->
 
 <?php include("../include/is_login.php");
 ?>
@@ -86,7 +87,7 @@ date: 11/6/2023
                 }
                 ?> <br>
 
-                <label for="">amount:</label><input type="number" name="amount" placeholder="amount"
+                <label for="">budget:</label><input type="number" name="amount" placeholder="amount"
                     value="<?php if (isset($amount)) echo $amount ?>"><br>
                 <?php
                 if (isset($err_amount)) {

@@ -1,3 +1,8 @@
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +17,9 @@
 <body>
     <div class="top" align=center>
         <h2>Expense Report</h2>
-        <p>Category: <?php echo $date_from; ?></p>
-        <p>Payment methods: <?php echo $date_to; ?></p>
+        <p>Category: <?php echo $category; ?></p>
+        <p>Payment methods:
+            <?php echo ((int)$payment === 1) ? 'all' : $payment; ?></p>
         <p>Date from: <?php echo $date_from; ?></p>
         <p>Date to: <?php echo $date_to; ?></p>
     </div>
@@ -40,16 +46,17 @@
             for ($i = 0; $i < count($rows); $i++) {
                 // echo $rows[$i][1].'<br>';
                 $temp = $rows[$i][1];
-                $sql = "SELECT category_name FROM `categories` WHERE category_id='$temp' ";
+                $sql = "SELECT category_name FROM `categories` WHERE
+                 category_id='$temp' ";
                 $result = mysqli_query($conn, $sql);
                 $res = mysqli_fetch_assoc($result);
                 $rows[$i][1] = $res['category_name'];
                 // print_r($rows[$i][1]);
             }
-
             $i = 0;
             foreach ($rows as $row) {
-                $sql = "SELECT payment_name FROM `payment_account` WHERE  payment_id='$row[2]' ";
+                $sql = "SELECT payment_name FROM `payment_account`
+                 WHERE  payment_id='$row[2]' ";
                 $result = mysqli_query($conn, $sql);
                 $res = mysqli_fetch_assoc($result);
                 $rows[$i++][2] = $res['payment_name'];

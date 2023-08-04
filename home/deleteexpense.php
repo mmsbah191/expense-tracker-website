@@ -1,7 +1,8 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-  //path=../home/profile.php
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    interface home\deleteexpense.php
+-->
 
 <?php include("../include/is_login.php");
 ?>
@@ -40,7 +41,7 @@ date: 11/6/2023
 
             $sql = "SELECT title FROM `expenses` 
               INNER JOIN categories ON expenses.category_id = categories.category_id
-        INNER JOIN payment_account ON expenses.payment_id = payment_account.payment_id
+                      INNER JOIN payment_account ON expenses.payment_id = payment_account.payment_id
         WHERE categories.user_id = $id AND payment_account.user_id =$id and categories.type ='expense'";
 
             $result = mysqli_query($conn, $sql);

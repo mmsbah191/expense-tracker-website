@@ -1,8 +1,8 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-  //path=../home/profile.php
-*/ -->
-
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+  interface  home\searchexpense.php
+-->
 
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ date: 11/6/2023
                     <option selected value="1">all categories (default)</option>
                     <!-- <option value="all_categories">all categories (default)</option> -->
                     <?php foreach ($categories as $cate) : ?>
-                        <option value="<?php echo $cate; ?>"><?php echo $cate; ?></option>
+                    <option value="<?php echo $cate; ?>"><?php echo $cate; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <?php echo isset($err_category) ? $err_category : ''; ?>
@@ -65,7 +65,7 @@ date: 11/6/2023
                     <option selected value="1">all payment methods (default)</option>
                     <!-- <option value="all_payments">all payment methods (default)</option> -->
                     <?php foreach ($payments as $pmt) : ?>
-                        <option value="<?php echo $pmt; ?>"><?php echo $pmt; ?></option>
+                    <option value="<?php echo $pmt; ?>"><?php echo $pmt; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <?php echo isset($err_payment) ? $err_payment : ''; ?>
@@ -80,7 +80,9 @@ date: 11/6/2023
                 $created_at = explode(' ', $created_at[0])[0];
                 ?>
 
-                <label>expense date from: (default created date)</label><input type="date" name="date_from" placeholder="expense_date if empty take today date" value="<?php if (isset($date_from)) echo $date_from;
+                <label>expense date from: (default created date)</label><input type="date" name="date_from"
+                    placeholder="expense_date if empty take today date"
+                    value="<?php if (isset($date_from)) echo $date_from;
                                                                                                                                                                         echo $created_at; ?>"><br>
                 <?php
                 if (isset($err_date_from)) {
@@ -89,7 +91,9 @@ date: 11/6/2023
                 ?>
 
 
-                <label>expense date to:(default today date)</label><input type="date" name="date_to" placeholder="expense_date if empty take today date" value="<?php if (isset($date_to)) echo $date_to;
+                <label>expense date to:(default today date)</label><input type="date" name="date_to"
+                    placeholder="expense_date if empty take today date"
+                    value="<?php if (isset($date_to)) echo $date_to;
                                                                                                                                                                 else echo date('Y-m-d'); ?>"><br>
                 <?php
                 if (isset($err_date_to)) {

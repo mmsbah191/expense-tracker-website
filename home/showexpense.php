@@ -1,3 +1,8 @@
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+   interface home\showexpense.php
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +36,7 @@
         </thead>
         <tbody>
             <?php
-             include("../include/is_login.php");
+            include("../include/is_login.php");
             include("../include/connect.php");
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();

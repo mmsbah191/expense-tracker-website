@@ -1,8 +1,8 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-  //path=../home/profile.php
-*/ -->
-
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 
 
 <?php include("../include/is_login.php");
@@ -35,7 +35,7 @@ date: 11/6/2023
 
 
             <?php include("../include/connect.php");
-                $id = $_SESSION['id'];
+            $id = $_SESSION['id'];
 
             $sql = "SELECT category_name FROM `categories` WHERE user_id='$id' ";
             $result = mysqli_query($conn, $sql);

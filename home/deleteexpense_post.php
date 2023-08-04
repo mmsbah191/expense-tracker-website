@@ -1,6 +1,11 @@
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <?php
 include("../include/connect.php");
-include("../include/functions.php");
+// include_once("../include/functions.php");
 
 
 
@@ -8,9 +13,8 @@ if (isset($_POST['delete']) and isset($_POST['name'])) {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    $id = $_SESSION['id'];
-    ;
-    $name = data_validition($conn, $_POST['name']);
+    $id = $_SESSION['id'];;
+    $name = $_POST['name'];
     // echo $name;
     // echo $id;
     $sql = "DELETE expenses FROM expenses

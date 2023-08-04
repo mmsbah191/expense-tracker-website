@@ -1,8 +1,8 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-  //path=../home/profile.php
-*/ -->
-
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    interface home\addcategories.php
+-->
 
 
 <?php include("../include/is_login.php");
@@ -33,8 +33,7 @@ date: 11/6/2023
 
             <form action="addcategories_post.php" method="POST">
 
-                <input type="text" name="name" placeholder="category_name"
-                    value="<?php if (isset($name)) echo $name; ?>"><br>
+                <input type="text" name="name" placeholder="category_name" value="<?php if (isset($name)) echo $name; ?>"><br>
                 <?php
                 if (isset($err_name)) {
                     echo $err_name;
@@ -53,16 +52,14 @@ date: 11/6/2023
                 if (isset($err_type)) {
                     echo $err_type;
                 }
-                ?> <input type="number" step="0.01" name="amount" placeholder="Budget"
-                    value="<?php if (isset($amount)) echo $amount ?>"><br>
+                ?> <input type="number" step="0.01" name="amount" placeholder="Budget" value="<?php if (isset($amount)) echo $amount ?>"><br>
                 <?php
                 if (isset($err_amount)) {
                     echo $err_amount;
                 }
                 ?>
 
-                <input type="text" name="notes" placeholder="Notes or Comments"
-                    value="<?php if (isset($notes)) echo $notes ?>"><br>
+                <input type="text" name="notes" placeholder="Notes or Comments" value="<?php if (isset($notes)) echo $notes ?>"><br>
 
 
                 <button type=" submit" name="sbmt">Add categoty</button>

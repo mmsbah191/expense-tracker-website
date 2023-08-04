@@ -1,12 +1,13 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-The name file is expressive
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <?php
 
 include("../include/connect.php");
-include("../include/functions.php");
- include('../include/data.php');
+include_once("../include/functions.php");
+include('../include/data.php');
 
 
 
@@ -32,7 +33,7 @@ if (isset($_POST['sbmt'])) {
         session_start();
     }
     $id = $_SESSION['id'];
-        //نحن بحاجة للتحقق من شكل البيانات وصحتها قبل إرسالها لقاعدة البيانات
+    //نحن بحاجة للتحقق من شكل البيانات وصحتها قبل إرسالها لقاعدة البيانات
     if ($name !== $nm) {
         if (empty($nm)) {
             $err_nm = "<p id='error'>Please enter your name</p>";
@@ -46,11 +47,10 @@ if (isset($_POST['sbmt'])) {
         } elseif (contains_digit($nm)) {
             $err_nm = "<p id='error'>Name must not contains digits</p>";
             $err = 1;
-        }else{
-             $sql = "UPDATE `users` SET  `name` = '$nm' WHERE `users`.`id`='$id';";
-        mysqli_query($conn, $sql);
+        } else {
+            $sql = "UPDATE `users` SET  `name` = '$nm' WHERE `users`.`id`='$id';";
+            mysqli_query($conn, $sql);
         }
-       
     }
 
 
@@ -91,7 +91,7 @@ if (isset($_POST['sbmt'])) {
         $check_result = mysqli_query($conn, $check_eml);
         $num_rows = mysqli_num_rows($check_result);
         // echo "res: " . "$num_rows";
-        if ($num_rows!=0) { //if var!=0 username exixts 
+        if ($num_rows != 0) { //if var!=0 username exixts 
             $err_eml = "<p id='error' >sorry not valid, email already exists</p> ";
             $err = 1;
         } elseif (empty($eml)) {
@@ -100,9 +100,9 @@ if (isset($_POST['sbmt'])) {
         } elseif (!filter_var($eml, FILTER_VALIDATE_EMAIL)) {
             $err_eml = "<p id='error'>Please enter currect email</p>";
             $err = 1;
-        }else{
-        $sql = "UPDATE `users` SET  `email` = '$eml' WHERE `users`.`id`='$id';";
-        mysqli_query($conn, $sql);
+        } else {
+            $sql = "UPDATE `users` SET  `email` = '$eml' WHERE `users`.`id`='$id';";
+            mysqli_query($conn, $sql);
         }
     }
 
@@ -115,7 +115,7 @@ if (isset($_POST['sbmt'])) {
         $check_result = mysqli_query($conn, $check_phn);
         $num_rows = mysqli_num_rows($check_result);
         // echo "res: "."$num_rows";
-        if ($num_rows !=0) { 
+        if ($num_rows != 0) {
             $err_phn = "<p id='error' >sorry not valid, phone already exists</p> ";
             $err = 1;
         } elseif (empty($phn)) {
@@ -124,9 +124,9 @@ if (isset($_POST['sbmt'])) {
         } elseif (!ctype_digit($phn)) {
             $err_phn = "<p id='error'>phone not digits</p>";
             $err = 1;
-        }else{
-        $sql = "UPDATE `users` SET  `phone` = '$phn' WHERE `users`.`id`='$id';";
-        mysqli_query($conn, $sql);
+        } else {
+            $sql = "UPDATE `users` SET  `phone` = '$phn' WHERE `users`.`id`='$id';";
+            mysqli_query($conn, $sql);
         }
     }
 
@@ -158,7 +158,7 @@ if (isset($_POST['sbmt'])) {
         include('home.php');
         exit();
     }
-}else{
+} else {
     include('profile.php');
     exit();
 }

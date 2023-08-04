@@ -1,8 +1,8 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-  //path=../home/profile.php
-*/ -->
-
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    interface home\addexpense.php
+-->
 
 <?php include("../include/is_login.php");
 ?>
@@ -48,29 +48,32 @@ date: 11/6/2023
 
             <form action="addexpense_post.php" method="POST">
 
-                <input type="text" name="title" placeholder="Expense_name" value="<?php if (isset($title)) echo $title ?>"><br>
+                <input type="text" name="title" placeholder="Expense_name"
+                    value="<?php if (isset($title)) echo $title ?>"><br>
                 <?php
                 if (isset($err_title)) {
                     echo $err_title;
                 }
                 ?>
-                <select class="ss" name="category" search>
-                    <option value="<?php echo isset($category) ? $category : ''; ?>" <?php echo empty($category) ? 'disabled' : 'selected'; ?>>
+                <label for="">categories</label><select class="ss" name="category" search>
+                    <option value="<?php echo isset($category) ? $category : ''; ?>"
+                        <?php echo empty($category) ? 'disabled' : 'selected'; ?>>
                         <?php echo isset($category) ? $category : 'Choose category'; ?>
                     </option>
                     <?php foreach ($categories as $cate) : ?>
-                        <option value="<?php echo $cate; ?>"><?php echo $cate; ?></option>
+                    <option value="<?php echo $cate; ?>"><?php echo $cate; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <?php echo isset($err_category) ? $err_category : ''; ?>
 
 
-                <select class="ss" name="payment" search>
-                    <option value="<?php echo isset($payment) ? $payment : ''; ?>" <?php echo empty($payment) ? 'disabled' : 'selected'; ?>>
+                <label for="">payment methods</label><select class="ss" name="payment" search>
+                    <option value="<?php echo isset($payment) ? $payment : ''; ?>"
+                        <?php echo empty($payment) ? 'disabled' : 'selected'; ?>>
                         <?php echo isset($payment) ? $payment : 'Choose payment'; ?>
                     </option>
                     <?php foreach ($payments as $pmt) : ?>
-                        <option value="<?php echo $pmt; ?>"><?php echo $pmt; ?></option>
+                    <option value="<?php echo $pmt; ?>"><?php echo $pmt; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <?php echo isset($err_payment) ? $err_payment : ''; ?>
@@ -86,7 +89,8 @@ date: 11/6/2023
 
 
 
-                <input type="number" name="amount" placeholder="Price" value="<?php if (isset($amount)) echo $amount ?>"><br>
+                <input type="number" name="amount" placeholder="Price"
+                    value="<?php if (isset($amount)) echo $amount ?>"><br>
                 <?php
                 if (isset($err_amount)) {
                     echo $err_amount;
@@ -94,7 +98,8 @@ date: 11/6/2023
                 ?>
 
 
-                <input type="date" name="date" placeholder="expense_date if empty take today date" value="<?php if (isset($date)) echo $date;
+                <input type="date" name="date" placeholder="expense_date if empty take today date"
+                    value="<?php if (isset($date)) echo $date;
                                                                                                             else echo date('Y-m-d'); ?>"><br>
                 <?php
                 if (isset($err_date)) {
@@ -102,14 +107,16 @@ date: 11/6/2023
                 }
                 ?>
 
-                <input type="text" name="bill" placeholder="bill or recipt or picture or pdf" value="<?php if (isset($bill)) echo $bill ?>"><br>
+                <input type="text" name="bill" placeholder="bill or recipt or picture or pdf"
+                    value="<?php if (isset($bill)) echo $bill ?>"><br>
                 <?php
                 if (isset($err_bill)) {
                     echo $err_bill;
                 }
                 ?>
 
-                <input type="text" name="notes" placeholder="Notes or Comments" value="<?php if (isset($notes)) echo $notes ?>"><br>
+                <input type="text" name="notes" placeholder="Notes or Comments"
+                    value="<?php if (isset($notes)) echo $notes ?>"><br>
 
 
                 <button type=" submit" name="sbmt">Add </button>

@@ -1,11 +1,12 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-The name file is expressive
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <?php
 
 include("../include/connect.php");
-include("../include/functions.php");
+include_once("../include/functions.php");
 
 
 if (isset($_POST['sbmt']) and isset($_POST['expense_id'])) {

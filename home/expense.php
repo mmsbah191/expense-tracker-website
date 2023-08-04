@@ -1,15 +1,12 @@
 <!-- 
     Name: Mohammed Ibrahim
-    date: 11/6/2023
+    date: 22/7/2023
     
 -->
 
 <?php
-    include_once('../include/is_login.php');
-
-
+include_once('../include/is_login.php');
 include('../include/head.html');
-
 ?>
 
 <body>
@@ -19,7 +16,6 @@ include('../include/head.html');
         <div class="left">
             <nav>
                 <ul>
-
                     <li data="Add a expense"><a href="addexpense.php">Add a expense</a></li>
                     <li data="Edit a expense"><a href="updateexpense.php">Edit a expense</a></li>
                     <li data="Delete a expense"><a href="deleteexpense.php">delete a expense</a></li>

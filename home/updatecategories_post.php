@@ -1,11 +1,12 @@
-<!-- /* Name: Mohammed Ibrahim
-date: 11/6/2023
-The name file is expressive
-*/ -->
+<!-- 
+    Name: Mohammed Ibrahim
+    date: 22/7/2023
+    
+-->
 <?php
 
 include("../include/connect.php");
-include("../include/functions.php");
+include_once("../include/functions.php");
 // include('../include/data.php');
 
 
@@ -56,8 +57,13 @@ if (isset($_POST['sbmt']) and isset($_POST['category_id'])) {
     } else {
 
 
+        $sql = "SELECT amount FROM `categories` WHERE category_id='$category_id' ";
+        $result = mysqli_query($conn, $sql);
+        $rows = mysqli_fetch_assoc($result);
+        $stay_amount = $rows['budget'] + $amount;
 
-        $sql = "UPDATE `categories` SET `category_name`='$name',`budget`='$amount',
+
+        $sql = "UPDATE `categories` SET `category_name`='$name',`budget`='$stay_amount',`amount`='$amount',
         `type` = '$type', `notes` = '$notes', `updated_at` = '$date' WHERE `user_id` = '$id' and category_id='$category_id'";
         mysqli_query($conn, $sql);
         echo "<script>alert('Successfully registered, log in to start Expense Tracker2')</script>";
