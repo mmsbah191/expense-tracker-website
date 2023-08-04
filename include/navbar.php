@@ -1,5 +1,8 @@
+<!-- /* Name: Mohammed Ibrahim
+date: 11/6/2023
+*/ -->
 <?php
-require_once '../include/connect.php';
+require_once 'connect.php';
 
 // Retrieve the user's avatar from the database based on their ID
 $id = $_COOKIE['id'];
@@ -26,8 +29,8 @@ if ($row = mysqli_fetch_assoc($result)) {
             <li><a href="../home/expense.php">Expenses</a></li>
             <li><a href="../home/income.php">Incomes</a></li>
             <li><a href="../home/Categories.php">Categories</a></li>
-            <li><a href="">Budget</a></li>
-            <li><a href="">Reports</a></li>
+            <li data="Transfer"><a href="../transfer/transfer.php">Transfer</a></li>
+            <li><a href="../rate/rating.php">Rating</a></li>
         </nav>
     </div>
     <div class="right">

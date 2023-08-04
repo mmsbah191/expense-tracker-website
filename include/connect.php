@@ -1,3 +1,6 @@
+<!-- /* Name: Mohammed Ibrahim
+date: 11/6/2023
+*/ -->
 <?php
 
 
@@ -9,6 +12,6 @@ $conn = mysqli_connect($host, $user, $password, $database);
 if (!$conn)
 
 
-die("Error " . mysqli_connect_error());
+    die("Error " . mysqli_connect_error());
 // else
 // echo "seccsfully connected";

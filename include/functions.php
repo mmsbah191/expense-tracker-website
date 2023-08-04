@@ -1,13 +1,14 @@
 <!-- /* Name: Mohammed Ibrahim
 date: 11/6/2023
-The name file is expressive
+Auxiliary functions in code reduction and data processing
 */ -->
 <?php
 // include("../include/functions.php");
 
 
 
-//data validition: remove '/' for clean inputs of scribts and suitable data form prepare  
+//data validition: remove '/' for clean inputs of scribts
+// and suitable data form prepare  
 function format($post)
 {
     return ucfirst(stripcslashes(strtolower($post)));
@@ -22,7 +23,7 @@ function sanitize($conn, $post)
 
 function data_validition($conn, $post)
 {
-    $post= ucfirst(stripcslashes(strtolower($post)));
+    $post = ucfirst(stripcslashes(strtolower($post)));
     return htmlentities(mysqli_real_escape_string($conn, $post));
 }
 
